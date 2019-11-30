@@ -1,5 +1,6 @@
 package equipment_process_storage.util;
 
+import equipment_process_storage.EPSController;
 import equipment_process_storage.common.AreaState;
 import equipment_process_storage.common.Node;
 import equipment_process_storage.memory.MemoryBlock;
@@ -16,6 +17,10 @@ import java.util.List;
  */
 public class MemoryScheduler {
 
+    private static EPSController controller;
+
+    public static void initController(EPSController c) { controller = c; }
+
     /**
      * 为可执行文件分配内存空间
      * @param id 分区id(最好不重复，仅为了展示美观)
@@ -25,7 +30,12 @@ public class MemoryScheduler {
      */
     public static int allocUserAreaMemory(int id, int size, List<String> data, Long processId) {
         MemoryBlock<List<String>> area = new MemoryBlock<>(id, size, AreaState.USED, data, processId);
-        return firstFit(area, UserArea.getInstance().getHeadNode());
+        int result = firstFit(area, UserArea.getInstance().getHeadNode());
+        if (result > 0) {
+            UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() + size);
+            controller.updateChart();
+        }
+        return result;
     }
 
     /**
@@ -107,8 +117,6 @@ public class MemoryScheduler {
         Node<MemoryBlock> p = UserArea.getInstance().getHeadNode().next;
         List<String> instructions = null;
         while (true) {
-            // TODO  p != null
-//            System.out.println("p.data.getProcessId() : "+p.data.getProcessId());
             if (p.data.getProcessId() != null && p.data.getProcessId().equals(processId)) {
                 instructions = (List<String>) p.data.getData();
                 break;
@@ -144,6 +152,8 @@ public class MemoryScheduler {
                             p.next.next.prior = p;
                         }
                         p.next = p.next.next;
+                        UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
+                        controller.updateChart();
                     }
                     break;
                 }
@@ -151,20 +161,25 @@ public class MemoryScheduler {
                         && (p.next.data.getState().getCode() == AreaState.FREE.getCode())) {
                     p.prior.data.setSize(p.data.getSize() + p.prior.data.getSize() + p.next.data.getSize());
                     p.prior.next = p.next.next;
-                    // TODO 我多加了p.next.next != null 条件
                     if (p.next.next != null && p.next.next.prior != null) {
                         p.next.next.prior = p.prior;
                     }
+                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
+                    controller.updateChart();
                 } else if (p.prior.data.getState().getCode() == AreaState.FREE.getCode()) {
                     p.prior.data.setSize(p.data.getSize() + p.prior.data.getSize());
                     p.prior.next = p.next;
                     p.next.prior = p.prior;
+                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
+                    controller.updateChart();
                 } else if (p.next.data.getState().getCode() == AreaState.FREE.getCode()) {
                     p.data.setSize(p.data.getSize() + p.next.data.getSize());
                     if (p.next.next != null) {
                         p.next.next.prior = p;
                     }
                     p.next = p.next.next;
+                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
+                    controller.updateChart();
                 }
                 break;
             }

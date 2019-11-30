@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -13,11 +15,13 @@
           <AnchorPane maxWidth="230.0" minHeight="0.0" minWidth="230.0" prefHeight="650.0" prefWidth="230.0">
                <children>
                   <fx:include source="../storage/storage.fxml" />
+                  <PieChart fx:id="chart" labelLineLength="10.0" layoutX="12.0" layoutY="33.0" prefHeight="194.0" prefWidth="207.0" AnchorPane.bottomAnchor="421.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="33.0" />
+                  <Label layoutX="76.0" layoutY="240.0" text="内存使用占比" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="710.0">
                <children>
-                  <SplitPane dividerPositions="0.7380952380952381" orientation="VERTICAL" prefHeight="650.0" prefWidth="710.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="650.0" prefWidth="710.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="435.0" prefWidth="710.0">
                            <children>

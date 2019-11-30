@@ -2,6 +2,7 @@ package equipment_process_storage.memory;
 
 import equipment_process_storage.common.AreaState;
 import equipment_process_storage.common.Node;
+import javafx.scene.chart.PieChart;
 
 /**
  * @author superferryman
@@ -13,6 +14,7 @@ public class UserArea {
 
     private Node<MemoryBlock> headNode;
     private Node<MemoryBlock> tailNode;
+    private double used;
 
     public static UserArea getInstance() {
         if (instance == null) {
@@ -22,7 +24,8 @@ public class UserArea {
     }
 
     private UserArea() {
-        MemoryBlock block = new MemoryBlock(0, 2048, 0, AreaState.FREE);
+        used = 0;
+        MemoryBlock block = new MemoryBlock(0, 512, 0, AreaState.FREE);
         tailNode = new Node<>(block, null, null);
         headNode = new Node<>(null, null, null);
         tailNode.prior = headNode;
@@ -35,7 +38,15 @@ public class UserArea {
 
     public Node<MemoryBlock> getTailNode() { return tailNode; }
 
-    public int getMaxSize() {
-        return 2048;
+    public double getUsed() {
+        return used;
+    }
+
+    public void setUsed(double used) {
+        this.used = used;
+    }
+
+    public double getMaxSize() {
+        return 512.0;
     }
 }
