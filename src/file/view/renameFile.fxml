@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="185.0" prefWidth="226.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.RenameActionController">
-  
+  <!-- TODO Add Nodes -->
   <children>
     <TextField fx:id="text" layoutX="74.0" layoutY="23.0" prefWidth="137.0" />
     <Button layoutX="31.0" layoutY="120.0" mnemonicParsing="false" onAction="#sure" text="确定" />

@@ -43,18 +43,16 @@ public class TestClass {
 
     public void initRoot() {
         Directory root = FileBuffer.root;
-        Directory d1 = new Directory("目录1", FileType.DIRECTORY, false, true, true, true);
-        Directory d2 = new Directory("目录2", FileType.DIRECTORY, false, true, true, true);
-        Directory d3 = new Directory("目录3", FileType.DIRECTORY, false, true, true, true);
-        root.addItem(d1);
-        root.addItem(d2);
-        root.addItem(d3);
-        for(int i = 0; i < 15; i++) {
-            d1.addItem(new Directory("目录-" + i, FileType.DIRECTORY, false, true, true, true));
-        }
+        Directory d1 = (Directory) root.getItemList().get(0);
+        d1.addItem(new Directory("目录-1", FileType.DIRECTORY, false, true, true, true));
+
     }
 
-    public void clearRoot() {
+    public void init(String[] args) {
         new DiskDriver().initialDisk();
+    }
+
+    public static void main(String[] args) {
+       new DiskDriver().initialDisk();
     }
 }

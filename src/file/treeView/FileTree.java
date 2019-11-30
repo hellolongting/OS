@@ -48,6 +48,7 @@ public class FileTree {
 		initTree();
 	}
 	
+	
 	public void initTree() {
 		
 
@@ -58,7 +59,7 @@ public class FileTree {
 			@Override
 			public void changed(ObservableValue<? extends TreeItem<TreeNode>> observable, TreeItem<TreeNode> oldValue,
 					TreeItem<TreeNode> newValue) {
-				
+				// TODO Auto-generated method stub
 //				Services.indexOfSelectTreeNode = treeView.getRow(newValue);
 				selectedItem = newValue;
 				Services.selectTreeNode = newValue;

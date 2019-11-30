@@ -59,7 +59,9 @@ public class TextFile extends AbstractFile {
             num = table[num];
             table[temp] = 0;
         } while(num != 1);
+        //默认获取原起始盘块
         num = getNumber();
+        table[num] = 1;
         int size = DiskDriver.DISK_CHUNK_SIZE;
         byte[] bytes = text.getBytes();
         //重新写入
