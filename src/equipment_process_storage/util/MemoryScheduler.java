@@ -33,7 +33,7 @@ public class MemoryScheduler {
         int result = firstFit(area, UserArea.getInstance().getHeadNode());
         if (result > 0) {
             UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() + size);
-            controller.updateChart();
+            controller.updateUserAreaChart();
         }
         return result;
     }
@@ -47,7 +47,13 @@ public class MemoryScheduler {
      */
     public static <T> boolean allocSystemAreaMemory(int id, int size, T data, Long processId) {
         MemoryBlock<T> area = new MemoryBlock<>(id, size, AreaState.USED, data, processId);
-        return firstFit(area, SystemArea.getInstance().getHeadNode()) != -1;
+        int result = firstFit(area, SystemArea.getInstance().getHeadNode());
+        if (result > 0) {
+            SystemArea.getInstance().setUsed(SystemArea.getInstance().getUsed() + size);
+            controller.updateSystemAreaChart();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -95,7 +101,11 @@ public class MemoryScheduler {
      * @param processId 进程id
      */
     public static void freeSystemAreaMemory(Long processId) {
-        free(processId, SystemArea.getInstance().getHeadNode());
+        double result = free(processId, SystemArea.getInstance().getHeadNode());
+        if (result != -1) {
+            SystemArea.getInstance().setUsed(SystemArea.getInstance().getUsed() - result);
+            controller.updateSystemAreaChart();
+        }
     }
 
     /**
@@ -103,7 +113,11 @@ public class MemoryScheduler {
      * @param processId 进程id
      */
     public static void freeUserAreaMemory(Long processId) {
-        free(processId, UserArea.getInstance().getHeadNode());
+        double result = free(processId, UserArea.getInstance().getHeadNode());
+        if (result != -1) {
+            UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - result);
+            controller.updateUserAreaChart();
+        }
     }
 
     /**
@@ -134,7 +148,7 @@ public class MemoryScheduler {
      * @param processId 进程ID
      * @param head 需要释放内存的列表
      */
-    private static void free(Long processId, Node<MemoryBlock> head) {
+    private static double free(Long processId, Node<MemoryBlock> head) {
         Node<MemoryBlock> p = head.next;
         while (p != null) {
             if (p.data.getState().getCode() == AreaState.USED.getCode() && p.data.getProcessId().equals(processId)) {
@@ -152,8 +166,7 @@ public class MemoryScheduler {
                             p.next.next.prior = p;
                         }
                         p.next = p.next.next;
-                        UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
-                        controller.updateChart();
+                        return p.data.getSize();
                     }
                     break;
                 }
@@ -164,27 +177,25 @@ public class MemoryScheduler {
                     if (p.next.next != null && p.next.next.prior != null) {
                         p.next.next.prior = p.prior;
                     }
-                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
-                    controller.updateChart();
+                    return p.data.getSize();
                 } else if (p.prior.data.getState().getCode() == AreaState.FREE.getCode()) {
                     p.prior.data.setSize(p.data.getSize() + p.prior.data.getSize());
                     p.prior.next = p.next;
                     p.next.prior = p.prior;
-                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
-                    controller.updateChart();
+                    return p.data.getSize();
                 } else if (p.next.data.getState().getCode() == AreaState.FREE.getCode()) {
                     p.data.setSize(p.data.getSize() + p.next.data.getSize());
                     if (p.next.next != null) {
                         p.next.next.prior = p;
                     }
                     p.next = p.next.next;
-                    UserArea.getInstance().setUsed(UserArea.getInstance().getUsed() - p.data.getSize());
-                    controller.updateChart();
+                    return p.data.getSize();
                 }
                 break;
             }
             p = p.next;
         }
+        return -1;
     }
 
     /**

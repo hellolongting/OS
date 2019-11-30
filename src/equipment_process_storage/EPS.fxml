@@ -15,8 +15,10 @@
           <AnchorPane maxWidth="230.0" minHeight="0.0" minWidth="230.0" prefHeight="650.0" prefWidth="230.0">
                <children>
                   <fx:include source="../storage/storage.fxml" />
-                  <PieChart fx:id="chart" labelLineLength="10.0" layoutX="12.0" layoutY="33.0" prefHeight="194.0" prefWidth="207.0" AnchorPane.bottomAnchor="421.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="33.0" />
-                  <Label layoutX="76.0" layoutY="240.0" text="内存使用占比" />
+                  <PieChart fx:id="userArea" labelLineLength="10.0" layoutX="12.0" layoutY="33.0" prefHeight="194.0" prefWidth="207.0" AnchorPane.bottomAnchor="421.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="33.0" />
+                  <Label layoutX="68.0" layoutY="242.0" text=" 用户区内存使用" />
+                  <Label layoutX="68.0" layoutY="499.0" text=" 系统区内存使用" />
+                  <PieChart fx:id="systemArea" labelLineLength="10.0" layoutX="12.0" layoutY="290.0" prefHeight="194.0" prefWidth="207.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="710.0">

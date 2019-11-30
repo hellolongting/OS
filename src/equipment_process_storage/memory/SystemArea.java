@@ -18,6 +18,7 @@ public class SystemArea {
     private PCBNode[] pcbArea;
     private AtomicInteger sizeOfPcbArea;
     private Node<MemoryBlock> headNode;
+    private double used;
 
     public static SystemArea getInstance() {
         if (instance == null) {
@@ -28,7 +29,7 @@ public class SystemArea {
 
     private SystemArea() {
         pcbArea  = new PCBNode[10];
-        MemoryBlock block = new MemoryBlock(0, 20480, 0, AreaState.FREE);
+        MemoryBlock block = new MemoryBlock(0, 2048, 0, AreaState.FREE);
         headNode = new Node<>(block, null, null);
         sizeOfPcbArea = new AtomicInteger(0);
     }
@@ -48,4 +49,14 @@ public class SystemArea {
     public void setSizeOfPcbArea(int size) {
         sizeOfPcbArea.set(size);
     }
+
+    public double getUsed() {
+        return used;
+    }
+
+    public void setUsed(double used) {
+        this.used = used;
+    }
+
+    public double getMaxSize() { return 2048.0; }
 }
