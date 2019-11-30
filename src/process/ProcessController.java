@@ -45,16 +45,15 @@ public class ProcessController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<MyProcess> readyProcess = ProcessAction.readyProcessQueue.getQueue();
         this.readyTable.setItems(FXCollections.observableList(readyProcess));
-        this.readyIdColumn.setCellValueFactory(new PropertyValueFactory("id"));
+        this.readyIdColumn.setCellValueFactory(new PropertyValueFactory("name"));
         this.reachTimeColumn.setCellValueFactory(new PropertyValueFactory("reachTime"));
 
         List<MyProcess> blockProcess = ProcessAction.blockProcessQueue.getQueue();
         this.blockTable.setItems(FXCollections.observableList(blockProcess));
-        this.blockIdColumn.setCellValueFactory(new PropertyValueFactory("id"));
+        this.blockIdColumn.setCellValueFactory(new PropertyValueFactory("name"));
         this.blockReasonColumn.setCellValueFactory(new PropertyValueFactory("reason"));
 
         this.comboBox.setItems(FXCollections.observableList(SchedulingAction.executableFiles));
-
 
     }
 
@@ -118,7 +117,7 @@ public class ProcessController implements Initializable {
     }
 
     public void setIntermediateResult(String intermediateResult) {
-        this.intermediateResult.setText("");
+//        this.intermediateResult.setText("");
         this.intermediateResult.setText(intermediateResult);
     }
 
@@ -128,13 +127,6 @@ public class ProcessController implements Initializable {
 
     public void setExecutionTime(String executionTime) {
         this.executionTime.setText(executionTime);
-    }
-
-    /**
-     * 进行整体修改界面的更新
-     */
-    public void closeSimulation(){
-
     }
 
     /**

@@ -14,7 +14,7 @@ public class MyProcess {
     public static int TIMESLICE = 6;
     public static int baseID = (int)(Math.random() * 100000.0D) + 1;
     private LongProperty id = new SimpleLongProperty();
-    private String name;
+    private StringProperty name = new SimpleStringProperty();
     private StringProperty reachTime = new SimpleStringProperty();
     private StringProperty reason = new SimpleStringProperty();
     private PCB pcb;
@@ -76,11 +76,11 @@ public class MyProcess {
     }
 
     public String getName() {
-        return name;
+        return name.getValue();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.setValue(name);
     }
 
     public void setReason(int reason) {

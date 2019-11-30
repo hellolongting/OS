@@ -3,6 +3,7 @@ package process.action;
 import file.domain.ExecutableFile;
 import file.domain.FileBuffer;
 import process.ProcessController;
+import process.domain.pcb.PCBQueue;
 import process.thread.CPUThread;
 import process.thread.CreateProcessesThread;
 
@@ -25,6 +26,7 @@ public class SchedulingAction {
      * @param executableFile
      */
     public static void startScheduling(ProcessController processController, ExecutableFile executableFile) {
+        PCBQueue.initPCB();
         ProcessAction.clear();
         ProcessAction.processController = processController;
         ProcessAction.create(executableFile);

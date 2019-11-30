@@ -31,7 +31,7 @@ public class ProcessAction {
      * 进程创建
      * @param executableFile
      */
-    public static void create(ExecutableFile executableFile) {
+    public static boolean create(ExecutableFile executableFile) {
         // 申请进程控制块PCB
         int index = PCBQueue.apply();
         if(index != -1){
@@ -48,11 +48,20 @@ public class ProcessAction {
                 readyProcessQueue.add(process);
                 readyProcessRefresh();
             }else {
-                ProcessController.informationDialog("内存空间不足", "内存申请失败");
+                System.out.println("出错提示：进程 "+process.getName()+" 内存申请失败!\t内存空间不足");
+               // ProcessController.informationDialog("内存空间不足", "内存申请失败");
+                /**
+                 * 创建进程失败，归还刚申请的PCB下标
+                 */
+                PCBQueue.giveBackIndex(index);
+                return false;
             }
         }else {
-            ProcessController.informationDialog("你最多只能创建十个进程", "申请PCB失败");
+            System.out.println("出错提示：文件 "+executableFile.getName()+" 创建进程失败，\t最多只能创建十个进程！");
+//            ProcessController.informationDialog("你最多只能创建十个进程", "申请PCB失败");
+            return false;
         }
+        return true;
     }
 
     /**
@@ -67,8 +76,6 @@ public class ProcessAction {
             // 回收PCB
             PCBQueue.free(process.getPcb());
         }
-//        readyProcessRefresh();
-//        blockProcessRefresh();
     }
 
     /**

@@ -56,7 +56,7 @@ public class PCBQueue {
     }
 
     public static boolean isEmpty(){
-        if(top == -1 && tail == -1){
+        if((top == -1 && tail == -1) || (top == tail && top == blankIndex)){
             return true;
         }
         return false;
@@ -71,6 +71,15 @@ public class PCBQueue {
             blankIndex = queue[blankIndex].next;
         }
         return index;
+    }
+
+    /**
+     * 归还没有创建成功进程的已apply 申请的下标
+     * @param index
+     */
+    public static void giveBackIndex(int index){
+        queue[index].next = blankIndex;
+        blankIndex = index;
     }
 
     public static void put(PCB p, int index){
@@ -91,27 +100,38 @@ public class PCBQueue {
     public static void free(PCB pcb){
         int i,j,index=top;
         if(top == tail){
-            //只有一个PCB，直接删除
-            top = tail = -1;
-
-        }else {
-            i=j=top;
-            while(i <= tail){
-                if(queue[i].pcb.getID().equals(pcb.getID())){
-                    if(i == j){
-                        top = queue[top].next;
-                    }else{
-                        index = i;
-                        queue[j].next = queue[i].next;
-                    }
-                    break;
-                }
-                j=i++;
-            }
+            //只有一个PCB，直接删除,进行整体下标恢复
+            initPCB();
+            return;
         }
-
+        i=j=top;
+        while(i <= tail){
+            if(queue[top] != null && queue[i].pcb.getID().equals(pcb.getID())){
+                if(i == j){
+                    top = queue[top].next;
+                }else{
+                    index = i;
+                    queue[j].next = queue[i].next;
+                }
+                break;
+            }
+            j=i++;
+        }
         queue[index].next = blankIndex;
         blankIndex = index;
+    }
+
+    /**
+     * 在开始CPU模拟,或者PCB为空的时候，要进行PCB数组的下标恢复
+     */
+    public static void initPCB(){
+        top = -1;
+        tail = -1;
+        blankIndex = 0;
+        for(int i=0;i<9;i++){
+            queue[i].next = i+1;
+        }
+        queue[9].next = -1;
     }
 
 }
