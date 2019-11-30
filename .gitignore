@@ -8,4 +8,4 @@
 *.iws
 *.ipr
 /test/
-/output/*
+/output/production/
