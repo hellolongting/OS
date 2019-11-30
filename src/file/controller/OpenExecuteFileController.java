@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import file.domain.ExecutableFile;
-import file.domain.FileBuffer;
 import file.domain.TextFile;
 import file.model.Services;
 import file.tableView.FATTableView;
@@ -18,7 +17,7 @@ public class OpenExecuteFileController implements Initializable{
 	private TextArea text;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// 
+		// TODO Auto-generated method stub
 		exeFile = (ExecutableFile)Services.selectTreeNode.getValue().getFile();
 //		Services.openTextStage.setTitle(textFile.getName()+".txt");
 		String txt = exeFile.getCode();
@@ -48,17 +47,8 @@ public class OpenExecuteFileController implements Initializable{
 	/*
 	 * 运行---
 	 */
-	//TODO: 运行可执行文件调用接口
 	@FXML
 	public void run() {
-		/**  示例  **/
-		System.out.println("运行....");
-		/**  获取该可执行文件的指令集,指令以分号分隔  **/
-		for(ExecutableFile e : FileBuffer.exeList) {
-			System.out.println(e.getURL());
-			for(String s : e.getInstructions()) {
-				System.out.println(s);
-			}
-		}
+		
 	}
 }

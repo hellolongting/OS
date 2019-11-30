@@ -17,7 +17,7 @@ public class OpenTextFileController implements Initializable{
 	private TextArea text;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		// TODO Auto-generated method stub
 		textFile = (TextFile)Services.selectTreeNode.getValue().getFile();
 //		Services.openTextStage.setTitle(textFile.getName()+".txt");
 		String txt = textFile.getText();

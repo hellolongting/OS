@@ -1,6 +1,7 @@
 package file.controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import file.domain.AbstractFile;
@@ -33,7 +34,7 @@ public class AddActionController implements Initializable{
 	private Text URL;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		// TODO Auto-generated method stub
 		cb.getItems().clear();
 		cb.getItems().add("目录");
 		cb.getItems().add("文本文件");
@@ -61,10 +62,26 @@ public class AddActionController implements Initializable{
 		this.filename = text.getText();
 		System.out.println(this.filename.length()+"***");
 		if(filename.length()==0) {
-			System.out.println("111**");
 			Alert alert = new Alert(AlertType.INFORMATION);
             alert.titleProperty().set("提示");
             alert.headerTextProperty().set("文件名不能为空");
+            alert.initOwner(Services.addStage);
+            alert.showAndWait();
+            return;
+		}
+		if(filename.getBytes().length>11) {
+
+			Alert alert = new Alert(AlertType.INFORMATION);
+            alert.titleProperty().set("提示");
+            alert.headerTextProperty().set("文件名过长");
+            alert.initOwner(Services.addStage);
+            alert.showAndWait();
+            return;
+		}
+		if(isSame(parent,filename)) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+            alert.titleProperty().set("提示");
+            alert.headerTextProperty().set("该目录下已有相同文件名");
             alert.initOwner(Services.addStage);
             alert.showAndWait();
             return;
@@ -109,4 +126,18 @@ public class AddActionController implements Initializable{
 	private void exit() {
 		Services.addStage.close();
 	}
+	
+	private boolean isSame(Directory parent,String file) {
+    	boolean flag=false;
+    	List<AbstractFile> list = parent.getItemList();
+    	for(AbstractFile f:list) {
+    		if(f.getName().equals(file)) {
+    			flag=true;
+    			break;
+    		}
+    		
+    	}
+    	
+    	return flag;
+    }
 }

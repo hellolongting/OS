@@ -1,8 +1,6 @@
 package file.driver;
 
-import file.domain.DiskChunk;
-import file.domain.FAT;
-import file.domain.FileBuffer;
+import file.domain.*;
 import file.exception.InvalidBoundException;
 import java.io.*;
 import java.util.ArrayList;
@@ -49,6 +47,14 @@ public class DiskDriver {
         initFAT();
         //初始化根目录
         initRoot();
+        //创建初始目录
+        Directory root = FileBuffer.root;
+        root.addItem(new Directory("目录1", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("目录2", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("目录3", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("目录4", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("目录5", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("目录6", FileType.DIRECTORY, false, true, true, true));
     }
 
     /**

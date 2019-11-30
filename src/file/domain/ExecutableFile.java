@@ -94,6 +94,7 @@ public class ExecutableFile extends AbstractFile{
             table[temp] = 0;
         } while(num != 1);
         num = getNumber();
+        table[num] = 1;
         int size = DiskDriver.DISK_CHUNK_SIZE;
         byte[] bytes = code.getBytes();
         //重新写入

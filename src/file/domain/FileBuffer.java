@@ -32,7 +32,7 @@ public class FileBuffer {
      * @param d
      * @return void
      **/
-    public static void retrieveExecutableFile(Directory d) {
+    private static void retrieveExecutableFile(Directory d) {
         for(AbstractFile file: d.getItemList()) {
             if(file.getType() == FileType.EXECUTABLE) {
                 exeList.add((ExecutableFile) file);

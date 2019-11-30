@@ -34,7 +34,7 @@ public class FileController implements Initializable{
 	private FATTableView table;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		// TODO Auto-generated method stub
 		tree = new FileTree(fileController,treeView);
 		table = new FATTableView(fileController,tableView);
 //		treeView=tree.getTreeView();

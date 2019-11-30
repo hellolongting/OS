@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="339.0" prefWidth="472.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.OpenTextFileController">
-  
+  <!-- TODO Add Nodes -->
   <children>
     <TextArea fx:id="text" layoutX="0.0" layoutY="31.0" prefHeight="309.0" prefWidth="472.0" wrapText="true" />
     <ToolBar layoutX="0.0" layoutY="0.0" prefWidth="472.0">

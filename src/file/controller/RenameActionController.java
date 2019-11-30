@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import file.domain.AbstractFile;
 import file.domain.Directory;
+import file.domain.FileType;
 import file.model.Services;
 import file.treeView.TreeNode;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class RenameActionController implements Initializable{
 	AbstractFile file=null;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		// TODO Auto-generated method stub
 		file = Services.selectTreeNode.getValue().getFile();
 		System.out.println(file.getName());
 		text.setPromptText(file.getName());
@@ -35,6 +36,12 @@ public class RenameActionController implements Initializable{
 	@FXML
 	public void sure() {
 		String newName = text.getText();
+		String rr =null;
+		if(file.getType().equals(FileType.EXECUTABLE)) 
+			rr = ".e";
+		else if(file.getType().equals(FileType.TEXT_FILE))
+			rr=".t";
+		newName = newName+rr;
 		if(isSame(file,newName)) {
 			Alert alert = new Alert(AlertType.INFORMATION);
             alert.titleProperty().set("信息");
@@ -44,13 +51,16 @@ public class RenameActionController implements Initializable{
 
 		}
 		else {
-		file.setName(newName);
-		file.getParent().updateItem();
-//		Services.selectTreeNode.getValue();
-	
-		TreeNode newNode =new  TreeNode(file);
-		Services.selectTreeNode.setValue(newNode);
-		Services.renameStage.close();
+			
+			
+			
+			file.setName(newName);
+			file.getParent().updateItem();
+	//		Services.selectTreeNode.getValue();
+		
+			TreeNode newNode =new  TreeNode(file);
+			Services.selectTreeNode.setValue(newNode);
+			Services.renameStage.close();
 		}
 		
 	}
