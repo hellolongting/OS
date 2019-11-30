@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +23,10 @@ public class EPSController implements Initializable {
     private PieChart userArea;
     @FXML
     private PieChart systemArea;
+    @FXML
+    private Label usedLabel;
+    @FXML
+    private Label freeLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,6 +41,8 @@ public class EPSController implements Initializable {
                 new PieChart.Data("已用内存", 0),
                 new PieChart.Data("空闲内存", 100)
         ));
+        this.usedLabel.setText(String.valueOf(0));
+        this.freeLabel.setText(String.valueOf(512));
         this.systemArea.setLabelLineLength(15);
         this.systemArea.setClockwise(true);
         this.systemArea.setLabelsVisible(true);
@@ -48,6 +55,8 @@ public class EPSController implements Initializable {
                     new PieChart.Data("已用内存", UserArea.getInstance().getUsed()),
                     new PieChart.Data("空闲内存", UserArea.getInstance().getMaxSize() - UserArea.getInstance().getUsed())
             ));
+            this.usedLabel.setText(String.valueOf(UserArea.getInstance().getUsed()));
+            this.freeLabel.setText(String.valueOf(UserArea.getInstance().getMaxSize() - UserArea.getInstance().getUsed()));
         });
     }
 

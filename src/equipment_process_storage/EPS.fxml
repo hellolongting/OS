@@ -17,8 +17,12 @@
                   <fx:include source="../storage/storage.fxml" />
                   <PieChart fx:id="userArea" labelLineLength="10.0" layoutX="12.0" layoutY="33.0" prefHeight="194.0" prefWidth="207.0" AnchorPane.bottomAnchor="421.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="33.0" />
                   <Label layoutX="68.0" layoutY="242.0" text=" 用户区内存使用" />
-                  <Label layoutX="68.0" layoutY="499.0" text=" 系统区内存使用" />
-                  <PieChart fx:id="systemArea" labelLineLength="10.0" layoutX="12.0" layoutY="290.0" prefHeight="194.0" prefWidth="207.0" />
+                  <Label layoutX="68.0" layoutY="553.0" text=" 系统区内存使用" />
+                  <PieChart fx:id="systemArea" labelLineLength="10.0" layoutX="12.0" layoutY="344.0" prefHeight="194.0" prefWidth="207.0" />
+                  <Label layoutX="25.0" layoutY="289.0" text="已使用:" />
+                  <Label layoutX="25.0" layoutY="319.0" text="未使用:" />
+                  <Label fx:id="usedLabel" layoutX="101.0" layoutY="289.0" />
+                  <Label fx:id="freeLabel" layoutX="100.0" layoutY="319.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="710.0">
