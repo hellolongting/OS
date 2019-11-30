@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="141.0" prefWidth="286.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.DeleteActionController">
+  
+  <children>
+    <Button layoutX="60.0" layoutY="84.0" mnemonicParsing="false" onAction="#delete" text="确定" />
+    <Button layoutX="171.0" layoutY="84.0" mnemonicParsing="false" text="取消" />
+    <Text layoutX="113.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="确定删除？" />
+  </children>
+</AnchorPane>

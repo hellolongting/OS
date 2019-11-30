@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="462.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.FileController">
+  <children>
+    <TreeView fx:id="treeView" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="231.0" />
+    <TableView fx:id="tableView" layoutX="231.0" layoutY="0.0" prefHeight="400.0" prefWidth="231.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="109.0" text="磁盘块号" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="使用情况" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

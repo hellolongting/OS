@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="278.0" prefWidth="361.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.OpenExecuteFileController">
+  
+  <children>
+    <ToolBar layoutX="0.0" layoutY="-1.0" prefWidth="361.0">
+      <items>
+        <Button mnemonicParsing="false" onAction="#save" text="保存" />
+        <Button mnemonicParsing="false" onAction="#exit" text="退出" />
+        <Button mnemonicParsing="false" onAction="#run" text="运行" />
+      </items>
+    </ToolBar>
+    <TextArea fx:id="text" layoutX="0.0" layoutY="30.0" prefHeight="248.0" prefWidth="360.9998779296875" wrapText="true" />
+  </children>
+</AnchorPane>

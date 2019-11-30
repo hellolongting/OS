@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="equipment.EquipmentController"
+            prefHeight="215.0" prefWidth="710.0">
+    <Label layoutX="44.0" layoutY="4.0" text="设备管理" />
+
+       <Label layoutX="44.0" layoutY="4.0" text="设备管理" />
+      <Label layoutX="34.0" layoutY="78.0" text="状态" />
+      <Label layoutX="15.0" layoutY="115.0" text="所占用" />
+      <Label layoutX="15.0" layoutY="136.0" text="的进程" />
+      <Label layoutX="29.0" layoutY="174.0" text="时间" />
+      <HBox alignment="CENTER" layoutX="73.0" layoutY="36.0" prefHeight="30.0" prefWidth="619.0" style="-fx-spacing: 65;">
+         <children>
+            <Label text="A1" />
+            <Label text="A2" />
+            <Label text="B1" />
+            <Label contentDisplay="CENTER" text="B2" />
+            <Label text="B3" />
+            <Label text="C1" />
+            <Label text="C2" />
+            <Label text="C3" />
+         </children>
+      </HBox>
+      <Label layoutX="22.0" layoutY="41.0" text="设备名" />
+      <HBox layoutX="74.0" layoutY="73.0" prefHeight="30.0" prefWidth="619.0" style="-fx-spacing: 30;">
+         <children>
+            <TextField fx:id="A1_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="A2_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B1_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B2_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B3_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C1_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C2_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C3_status" editable="false" prefHeight="20.0" prefWidth="53.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="67.0" layoutY="115.0" prefHeight="30.0" prefWidth="632.0" style="-fx-spacing: 16;">
+         <children>
+            <TextField fx:id="A1_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="A2_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="B1_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="B2_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="B3_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="C1_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="C2_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+            <TextField fx:id="C3_process" editable="false" prefHeight="20.0" prefWidth="68.0" />
+         </children>
+      </HBox>
+
+      <HBox layoutX="75.0" layoutY="169.0" prefHeight="30.0" prefWidth="619.0" style="-fx-spacing: 30;">
+         <children>
+            <TextField fx:id="A1_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="A2_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B1_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B2_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="B3_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C1_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C2_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+            <TextField fx:id="C3_time" editable="false" prefHeight="20.0" prefWidth="53.0" />
+         </children>
+      </HBox>
+ 
+</AnchorPane>

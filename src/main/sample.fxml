@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+   <children>
+      <FlowPane orientation="VERTICAL" styleClass="background" vgap="1.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label contentDisplay="TOP" graphicTextGap="10.0" onMouseClicked="#file_clicked" prefHeight="111.0" prefWidth="91.0" styleClass="node" text="文件管理">
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+               <graphic>
+                  <StackPane prefHeight="83.0" prefWidth="89.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" height="84.0" opacity="0.98" stroke="TRANSPARENT" strokeType="INSIDE" width="89.0">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0" proportional="false">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="#ffffff00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Rectangle>
+                        <ImageView fitHeight="81.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/main/file.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Label>
+            <Label contentDisplay="TOP" graphicTextGap="10.0" onMouseClicked="#equipment_clicked" prefHeight="111.0" prefWidth="91.0" styleClass="node" text="设备、进程、设备管理">
+               <graphic>
+                  <StackPane prefHeight="83.0" prefWidth="89.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" height="84.0" opacity="0.98" stroke="TRANSPARENT" strokeType="INSIDE" width="89.0">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0" proportional="false">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="TRANSPARENT" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Rectangle>
+                        <ImageView fitHeight="81.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/main/equipment.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+      </FlowPane>
+      <HBox layoutY="535.0" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #4F4F4F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="41.0" prefWidth="1000.0">
+               <children>
+                  <FlowPane layoutX="59.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </FlowPane>
+                  <Button fx:id="close" mnemonicParsing="false" onAction="#win_close" prefHeight="47.0" prefWidth="40.0" styleClass="exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="clock" prefWidth="109.0" text="18:46 2019/11/17" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

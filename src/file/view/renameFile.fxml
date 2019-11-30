@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="185.0" prefWidth="226.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.RenameActionController">
+  
+  <children>
+    <TextField fx:id="text" layoutX="74.0" layoutY="23.0" prefWidth="137.0" />
+    <Button layoutX="31.0" layoutY="120.0" mnemonicParsing="false" onAction="#sure" text="确定" />
+    <Button layoutX="113.0" layoutY="120.0" mnemonicParsing="false" onAction="#exit" text="取消" />
+    <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="新文件名：" />
+  </children>
+</AnchorPane>

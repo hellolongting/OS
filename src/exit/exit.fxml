@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane opacity="0.54" prefHeight="150.0" prefWidth="300.0"  xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exit.ExitController">
+   <children>
+      <Button fx:id="confirmExit" layoutX="53.0" layoutY="64.0" mnemonicParsing="false" onMouseClicked="#confirmExit" style="-fx-background-color: linear-gradient(to right, #afafaf , rgb(211,244,244));" text="确定关机">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="183.0" layoutY="64.0" mnemonicParsing="false" onMouseClicked="#cancelExit" style="-fx-background-color: linear-gradient(to right,rgb(211,244,244), #afafaf);" text="取消">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="435.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="process.ProcessController">
+    <children>
+        <Label layoutX="86.0" layoutY="10.0" text="进程管理">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <Line endX="-37.0" layoutX="117.0" layoutY="20.0" startX="-100.0" />
+        <Line endX="877.7929077148438" layoutX="-191.0" layoutY="21.0" startX="343.298583984375" AnchorPane.bottomAnchor="413.5" AnchorPane.rightAnchor="22.70709228515625" AnchorPane.topAnchor="20.5" />
+        <Label layoutX="37.0" layoutY="46.0" text="就绪队列">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TableView fx:id="readyTable" layoutX="36.0" layoutY="70.0" prefHeight="302.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="readyIdColumn" prefWidth="78.0" text="进程名" />
+                <TableColumn fx:id="reachTimeColumn" prefWidth="121.0" text="到达时间" />
+            </columns>
+        </TableView>
+        <Label layoutX="300.0" layoutY="46.0" text="过程显示">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="427.0" layoutY="46.0" text="阻塞队列">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TableView fx:id="blockTable" layoutX="427.0" layoutY="70.0" prefHeight="302.0" prefWidth="234.0" AnchorPane.rightAnchor="49.0">
+            <columns>
+                <TableColumn fx:id="blockIdColumn" prefWidth="75.0" text="进程名" />
+                <TableColumn fx:id="blockReasonColumn" prefWidth="158.0" text="阻塞原因" />
+            </columns>
+        </TableView>
+        <Label layoutX="278.0" layoutY="72.0" text="进程名">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="278.0" layoutY="141.0" text="当前指令">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="278.0" layoutY="210.0" text="中间结果">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="278.0" layoutY="281.0" text="执行时间">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="runningId" editable="false" layoutX="278.0" layoutY="104.0" prefHeight="23.0" prefWidth="110.0" />
+        <TextField fx:id="currentInstruction" editable="false" layoutX="278.0" layoutY="170.0" prefHeight="23.0" prefWidth="110.0" />
+        <TextField fx:id="intermediateResult" editable="false" layoutX="278.0" layoutY="241.0" prefHeight="23.0" prefWidth="110.0" />
+        <TextField fx:id="executionTime" editable="false" layoutX="278.0" layoutY="317.0" prefHeight="23.0" prefWidth="110.0" />
+        <ComboBox fx:id="comboBox" layoutX="225.0" layoutY="386.0" prefHeight="28.0" prefWidth="135.0" promptText="选择可执行文件" />
+        <Button fx:id="startButton" layoutX="376.0" layoutY="386.0" mnemonicParsing="false" onAction="#startSimulation" text="开始模拟">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+
+
+
+    </children>
+</AnchorPane>

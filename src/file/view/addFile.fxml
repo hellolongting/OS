@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="262.0" prefWidth="281.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="file.controller.AddActionController">
+  
+  <children>
+    <Pane layoutX="0.0" layoutY="0.0" prefHeight="262.0" prefWidth="281.0">
+      <children>
+        <Button layoutX="73.0" layoutY="212.0" mnemonicParsing="false" onAction="#importFileName" text="确定" />
+        <Button layoutX="160.0" layoutY="212.0" mnemonicParsing="false" onAction="#exit" text="取消" />
+        <TextField fx:id="text" layoutX="80.0" layoutY="35.0" prefWidth="160.0" />
+        <Text layoutX="34.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="文件名：" />
+        <Text layoutX="22.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="文件属性：" />
+        <ComboBox fx:id="cb" layoutX="95.0" layoutY="68.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="项 1" />
+              <String fx:value="项 2" />
+              <String fx:value="项 3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Text layoutX="19.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="文件路径：" />
+        <Text fx:id="URL" layoutX="101.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
