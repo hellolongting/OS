@@ -36,7 +36,6 @@ public class DiskDriver {
      **/
     public void initialDisk() {
         File file = new File(DISK_LOCATION);
-        file.delete();
         try {
             file.createNewFile();
         } catch (IOException e) {
@@ -47,14 +46,6 @@ public class DiskDriver {
         initFAT();
         //初始化根目录
         initRoot();
-        //创建初始目录
-        Directory root = FileBuffer.root;
-        root.addItem(new Directory("dir1", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("dir2", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("dir3", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("dir4", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("dir5", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("dir6", FileType.DIRECTORY, false, true, true, true));
     }
 
     /**
@@ -167,7 +158,7 @@ public class DiskDriver {
      * @return void
      **/
     public void initFAT() {
-        FAT fat = FileBuffer.fat;
+        FAT fat = new FAT(false);
         int[] table = new int[DiskDriver.DISK_TOTAL];
         //初始化分配表,0-2块盘块已占用,其余空闲
         for(int i = 0; i < DISK_TOTAL; i++) {

@@ -21,6 +21,10 @@ public class FAT {
     //磁盘驱动
     private DiskDriver diskDriver = new DiskDriver();
 
+    public FAT(boolean init) {
+
+    }
+
     public FAT() {
         List<DiskChunk> lists = diskDriver.read(Arrays.asList(number));
         //转化为文件分配表
