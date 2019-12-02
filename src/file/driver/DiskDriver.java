@@ -49,12 +49,12 @@ public class DiskDriver {
         initRoot();
         //创建初始目录
         Directory root = FileBuffer.root;
-        root.addItem(new Directory("目录1", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("目录2", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("目录3", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("目录4", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("目录5", FileType.DIRECTORY, false, true, true, true));
-        root.addItem(new Directory("目录6", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir1", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir2", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir3", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir4", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir5", FileType.DIRECTORY, false, true, true, true));
+        root.addItem(new Directory("dir6", FileType.DIRECTORY, false, true, true, true));
     }
 
     /**

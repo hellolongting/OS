@@ -3,7 +3,9 @@ package file.domain;
 import file.driver.DiskDriver;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,10 @@ public class FileBuffer {
 
 
     static {
+        File file = new File("./disk");
+        if(file.exists() == false) {
+            new DiskDriver().initialDisk();
+        }
         root = new Directory("root", FileType.ROOT, false, true, true, true);
         root.setNumber(DiskDriver.ROOT_LOCATION);
         root.setLength(Byte.toUnsignedInt(new DiskDriver().read(DiskDriver.DISK_TOTAL).getContent()[0]));
